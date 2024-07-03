@@ -76,8 +76,8 @@ After setting up the environment and installing the dependencies, you can run th
 ### Example
 
 ```sh
-Enter the host to test: example.com
-example.com is reachable. Ping time: 0.023 seconds
+Enter the host to test: love.com
+love.com is reachable. Ping time: 0.023 seconds
 Port 22: Closed
 Port 80: Open
 Port 443: Open
@@ -87,5 +87,4 @@ Traceroute:
   
 
 ---
-
-Copy and paste this content into a `README.md` file in your project directory. This will help users understand how to set up, use, and contribute to your network troubleshooter project.
+xx
