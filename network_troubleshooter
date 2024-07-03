@@ -1,0 +1,33 @@
+import os
+import socket
+from ping3 import ping
+from scapy.layers.inet import traceroute
+
+def ping_test(host):
+    response = ping(host)
+    if response is None:
+        print(f"{host} is unreachable.")
+    else:
+        print(f"{host} is reachable. Ping time: {response} seconds")
+
+def port_scan(host, ports):
+    for port in ports:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(1)
+        result = sock.connect_ex((host, port))
+        if result == 0:
+            print(f"Port {port}: Open")
+        else:
+            print(f"Port {port}: Closed")
+        sock.close()
+
+def perform_traceroute(host):
+    result, unans = traceroute(host)
+    result.show()
+
+if __name__ == "__main__":
+    target_host = input("Enter the host to test: ")
+    ports = [22, 80, 443]
+    ping_test(target_host)
+    port_scan(target_host, ports)
+    perform_traceroute(target_host)
